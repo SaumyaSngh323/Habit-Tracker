@@ -10,6 +10,7 @@
             darkMode: 'class',
         }
     </script>
+    
 </head>
 <body>
     <div id="app">
@@ -44,7 +45,9 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                     <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Card 1</h3>
-                        <p class="text-gray-600 dark:text-gray-400">This card demonstrates dark mode styling</p>
+                        <p class="text-gray-600 dark:text-gray-400"><p class="text-gray-700 dark:text-gray-300">
+    This card adapts automatically to the selected theme
+</p></p>
                     </div>
                     <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Card 2</h3>
@@ -62,11 +65,12 @@
                         This demo shows how the theme toggle works using:
                     </p>
                     <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2">
-                        <li>Tailwind CSS with <code class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">darkMode: 'class'</code></li>
+                        <li>Responsive theme switching using <code class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">Tailwind CSS</code></li>
                         <li>localStorage to persist theme preference</li>
                         <li>Toggle between light and dark themes</li>
                         <li>Automatic theme application on page load</li>
                     </ul>
+                    
                     <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
                         <p class="text-blue-800 dark:text-blue-300 font-medium">
                             Current theme: <span id="currentTheme" class="font-bold"></span>
@@ -83,18 +87,24 @@
         
         function applyTheme(theme) {
             const root = document.documentElement;
+           
+            
             const moonIcon = document.getElementById('moonIcon');
             const sunIcon = document.getElementById('sunIcon');
             const themeText = document.getElementById('currentTheme');
             
             if (theme === 'dark') {
                 root.classList.add('dark');
-                moonIcon.classList.add('hidden');
-                sunIcon.classList.remove('hidden');
+                /*moonIcon.classList.add('hidden');
+                sunIcon.classList.remove('hidden');*/
+                moonIcon.classList.remove('hidden'); // show moon
+                sunIcon.classList.add('hidden'); 
             } else {
                 root.classList.remove('dark');
-                moonIcon.classList.remove('hidden');
-                sunIcon.classList.add('hidden');
+                /*moonIcon.classList.remove('hidden');
+                sunIcon.classList.add('hidden');*/
+                moonIcon.classList.add('hidden');
+                sunIcon.classList.remove('hidden');
             }
             
             themeText.textContent = theme;
@@ -114,7 +124,8 @@
         document.getElementById('themeToggle').addEventListener('click', toggleTheme);
         
         console.log('Theme toggle demo loaded. Current theme:', currentTheme);
-        console.log('Click the moon/sun icon to toggle between light and dark themes!');
+       console.log('Click the moon/sun icon to toggle between light and dark themes!');
+        
     </script>
 </body>
 </html>
