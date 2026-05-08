@@ -4,9 +4,11 @@ import { LogIn, UserPlus } from 'lucide-react';
 import { Spinner } from './Spinner';
 
 
+interface AuthProps {
+  onGoHome: () => void;
+}
 
-
-export function Auth() {
+export function Auth({ onGoHome }: AuthProps) {
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -43,7 +45,7 @@ export function Auth() {
       <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-8">
         <div>
             <button
-            onClick={() => window.location.href = "./LandingPage"}
+            onClick={onGoHome}
             className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           >
             ← Home
@@ -51,7 +53,7 @@ export function Auth() {
         </div>
         <div className="text-center mb-8">
           <button className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-4"
-           onClick={() => window.location.href = "./LandingPage"}>
+           onClick={onGoHome}>
             <span className="text-2xl font-bold text-white">HT</span>
           </button>
           <h1 className="text-3xl font-bold text-gray-900">Habit Tracker</h1>
