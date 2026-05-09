@@ -25,7 +25,9 @@ function AppContent() {
   }
 
   if (showAuth) {
-    return <Auth />;
+    return <Auth 
+      onGoHome={() => setShowAuth(false)
+    }/>;
   }
 
   return <LandingPage onGetStarted={() => setShowAuth(true)} />;
