@@ -112,7 +112,7 @@ export function Challenges() {
 
   const deleteChallenge = async (challengeId: string) => {
     const confirmed = window.confirm(
-  "Are you sure you want to delete this challenge?"
+  "Are you sure you want to permanently delete this challenge?"
 );
 
 if (!confirmed) return;
