@@ -111,6 +111,11 @@ export function Challenges() {
   };
 
   const deleteChallenge = async (challengeId: string) => {
+    const confirmed = window.confirm(
+  "Are you sure you want to delete this challenge?"
+);
+
+if (!confirmed) return;
     try {
       const { error } = await supabase
         .from('challenges')
